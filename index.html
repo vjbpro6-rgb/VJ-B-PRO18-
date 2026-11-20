@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071426"><title>VJ B PRO18</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#">VJ B <span>PRO18</span></a><nav><button id="showLibrary" class="ghost">Video library</button><button id="logout" class="ghost hidden">Log out</button></nav></header>
+<main>
+  <section class="hero"><p class="eyebrow">YOUR ENTERTAINMENT HUB</p><h1>VJ B <span>PRO18</span></h1><p>Translated videos. Stream and download your favourites.</p></section>
+  <section id="setupNotice" class="panel hidden"><h2>Website setup required</h2><p>Add your Supabase project URL and public anon key in <code>app.js</code>, then run <code>schema.sql</code> in Supabase.</p></section>
+  <section id="authPanel" class="panel auth">
+    <div class="tabs"><button id="loginTab" class="active">Log in</button><button id="registerTab">Create account</button></div>
+    <form id="authForm"><label>Email<input id="email" type="email" required autocomplete="email"></label><label>Password<input id="password" type="password" minlength="8" required autocomplete="current-password"></label><button class="primary" id="authSubmit">Log in</button></form>
+    <p id="authMessage" class="message" aria-live="polite"></p>
+    <p class="small">Admin account: use the configured admin email. The first admin must register with that email.</p>
+  </section>
+  <section id="accountPanel" class="panel hidden">
+    <div class="sectionHead"><div><p class="eyebrow">YOUR ACCOUNT</p><h2 id="welcome">Welcome</h2></div><span id="rolePill" class="pill">Customer</span></div>
+    <div id="customerAccess"><p id="accessStatus">Checking your access…</p><div class="paymentBox"><h3>3-day access · UGX 2,000</h3><p>Pay by MTN Mobile Money or Airtel Money. Payment confirmation must be verified before videos unlock.</p><label>Mobile money number<input id="phone" type="tel" placeholder="e.g. 2567XXXXXXXX"></label><label>Network<select id="network"><option value="MTN">MTN Mobile Money</option><option value="AIRTEL">Airtel Money</option></select></label><button id="requestPayment" class="primary">Request payment</button><p id="paymentMessage" class="message"></p></div></div>
+    <div id="adminPanel" class="hidden"><h3>Admin dashboard</h3><p>Upload videos here. Only the administrator can upload.</p><form id="uploadForm"><label>Video title<input id="videoTitle" required maxlength="120"></label><label>Video file<input id="videoFile" type="file" accept="video/*" required></label><button class="primary">Upload video</button></form><p id="uploadMessage" class="message"></p><h3>Customer access requests</h3><div id="requests">Loading…</div></div>
+  </section>
+  <section id="library" class="library"><div class="sectionHead"><div><p class="eyebrow">WATCH SOMETHING GREAT</p><h2>Video library</h2></div></div><div id="videoGrid" class="grid"><p class="muted">Log in to view available videos.</p></div></section>
+</main>
+<footer>© <span id="year"></span> VJ B PRO18 · All rights reserved</footer>
+<script src="app.js"></script>
+</body></html>
